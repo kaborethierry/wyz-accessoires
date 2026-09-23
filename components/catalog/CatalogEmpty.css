@@ -1,0 +1,54 @@
+/* =========================================================
+   components/catalog/CatalogEmpty.css
+   ========================================================= */
+
+.catalog-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+
+  width: 100%;
+  padding-block: var(--space-12);
+}
+
+.catalog-empty__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+.catalog-empty__reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 1.4rem;
+  min-height: 44px;
+
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.catalog-empty__reset:hover {
+  background-color: var(--color-brown-dark);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-empty__reset {
+    transition: none !important;
+  }
+
+  .catalog-empty__reset:hover {
+    transform: none;
+  }
+}

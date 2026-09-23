@@ -1,0 +1,57 @@
+/* =========================================================
+   components/product/ProductPrice.css
+   ========================================================= */
+
+.product-price {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--ls-tight);
+}
+
+/* ---------------------------------------------------------
+   Tailles
+   --------------------------------------------------------- */
+.product-price--sm {
+  font-size: var(--fs-sm);
+}
+
+.product-price--md {
+  font-size: var(--fs-base);
+}
+
+.product-price--lg {
+  font-size: var(--fs-xl);
+}
+
+/* ---------------------------------------------------------
+   Alignement
+   --------------------------------------------------------- */
+.product-price--left {
+  text-align: left;
+}
+
+.product-price--center {
+  text-align: center;
+}
+
+.product-price--right {
+  text-align: right;
+}
+
+/* ---------------------------------------------------------
+   Prix réel
+   --------------------------------------------------------- */
+.product-price.is-number {
+  color: var(--color-brown-dark);
+}
+
+/* ---------------------------------------------------------
+   Prix sur demande
+   --------------------------------------------------------- */
+.product-price.is-ask {
+  color: var(--color-orange);
+  font-weight: 600;
+  font-size: 0.9em;
+}

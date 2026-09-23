@@ -1,0 +1,76 @@
+/* =========================================================
+   app/page.css
+   Page d'accueil — WYZ Accessoires
+   ========================================================= */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   1. Espacement vertical entre sections
+   --------------------------------------------------------- */
+.home > section {
+  width: 100%;
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+/* ---------------------------------------------------------
+   2. Largeur maximale (via conteneur interne des sections)
+   --------------------------------------------------------- */
+.home > section > .container,
+.home > section > .section-inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* ---------------------------------------------------------
+   3. Fond alterné entre certaines sections
+   --------------------------------------------------------- */
+.home > section:nth-of-type(odd) {
+  background-color: var(--color-bg);
+}
+
+.home > section:nth-of-type(even) {
+  background-color: var(--color-surface);
+}
+
+/* ---------------------------------------------------------
+   4. Responsive général de la homepage
+   --------------------------------------------------------- */
+@media (max-width: 767px) {
+  .home > section {
+    padding-block: clamp(2.25rem, 7vw, 3.25rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .home > section {
+    padding-block: 2rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   5. Titres de sections (base commune)
+   --------------------------------------------------------- */
+.home h2 {
+  font-family: var(--font-display);
+  color: var(--color-brown-dark);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.home p.section-subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  max-width: 640px;
+  margin: 0 auto var(--space-10);
+  line-height: var(--lh-relaxed);
+}

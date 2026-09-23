@@ -1,0 +1,44 @@
+/* =========================================================
+   components/product/ProductAvailability.css
+   ========================================================= */
+
+.product-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.product-availability__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   Disponible
+   --------------------------------------------------------- */
+.product-availability.is-available {
+  color: var(--color-success);
+}
+
+/* ---------------------------------------------------------
+   Indisponible
+   --------------------------------------------------------- */
+.product-availability.is-unavailable {
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Prix sur demande
+   --------------------------------------------------------- */
+.product-availability.is-ask {
+  color: var(--color-orange);
+}

@@ -1,0 +1,151 @@
+/* =========================================================
+   components/ui/Modal.css
+   ========================================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+
+.modal.is-open {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  border: 0;
+  cursor: pointer;
+}
+
+.modal.is-open .modal__overlay {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Panneau
+   --------------------------------------------------------- */
+.modal__panel {
+  position: relative;
+  width: 100%;
+  max-height: calc(100dvh - 2rem);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px var(--color-shadow-strong);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.modal.is-open .modal__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.modal__panel--sm {
+  max-width: 400px;
+}
+
+.modal__panel--md {
+  max-width: 560px;
+}
+
+.modal__panel--lg {
+  max-width: 860px;
+}
+
+.modal__panel--full {
+  max-width: 100%;
+  height: calc(100dvh - 2rem);
+  border-radius: var(--radius-md);
+}
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.modal__close:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Corps
+   --------------------------------------------------------- */
+.modal__body {
+  padding: var(--space-5);
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .modal {
+    padding: var(--space-3);
+  }
+
+  .modal__panel {
+    border-radius: var(--radius-md);
+  }
+
+  .modal__header,
+  .modal__body {
+    padding: var(--space-4);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .modal__overlay,
+  .modal__panel {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,305 @@
+/* =========================================================
+   app/commande/page.css
+   ========================================================= */
+
+.commande {
+  width: 100%;
+  padding-block: var(--space-10) var(--space-16);
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   En-tête
+   --------------------------------------------------------- */
+.commande__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.commande__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.commande__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.commande__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 520px;
+}
+
+/* ---------------------------------------------------------
+   État vide
+   --------------------------------------------------------- */
+.commande__empty {
+  padding-block: var(--space-10);
+}
+
+/* ---------------------------------------------------------
+   Layout
+   --------------------------------------------------------- */
+.commande__layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+.commande__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.commande__section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  margin-bottom: var(--space-1);
+}
+
+.commande__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ---------------------------------------------------------
+   Textarea
+   --------------------------------------------------------- */
+.commande__textarea-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.commande__textarea-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.commande__textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  resize: vertical;
+
+  transition: border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.commande__textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 3px rgba(229, 138, 43, 0.18);
+}
+
+/* ---------------------------------------------------------
+   Info
+   --------------------------------------------------------- */
+.commande__info {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--color-orange);
+  background-color: rgba(229, 138, 43, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------------------------------------------------------
+   Boutons
+   --------------------------------------------------------- */
+.commande__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  min-height: 48px;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.commande__btn--primary {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  width: 100%;
+}
+
+.commande__btn--primary:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+.commande__btn--whatsapp {
+  background-color: var(--color-success);
+  color: var(--color-surface);
+  width: 100%;
+}
+
+.commande__btn--whatsapp:hover {
+  background-color: #335a41;
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Aside résumé
+   --------------------------------------------------------- */
+.commande__aside {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+
+.commande__summary-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.commande__summary-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+/* ---------------------------------------------------------
+   Liste des articles
+   --------------------------------------------------------- */
+.commande__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.commande__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.commande__item-name {
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.commande__item-qty {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  margin-top: 2px;
+}
+
+.commande__item-price {
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   Retour
+   --------------------------------------------------------- */
+.commande__back {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  text-align: center;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.commande__back:hover {
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .commande__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .commande__aside {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .commande {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .commande__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .commande__form,
+  .commande__summary-card {
+    padding: var(--space-4);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .commande__btn,
+  .commande__textarea,
+  .commande__back {
+    transition: none !important;
+  }
+
+  .commande__btn:hover {
+    transform: none;
+  }
+}

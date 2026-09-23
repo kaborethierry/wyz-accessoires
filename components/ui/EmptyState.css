@@ -1,0 +1,75 @@
+/* =========================================================
+   components/ui/EmptyState.css
+   ========================================================= */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+
+  padding: var(--space-10) var(--space-6);
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------
+   Icône
+   --------------------------------------------------------- */
+.empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Texte
+   --------------------------------------------------------- */
+.empty-state__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.empty-state__description {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 320px;
+}
+
+/* ---------------------------------------------------------
+   Action
+   --------------------------------------------------------- */
+.empty-state__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: var(--space-3);
+  padding: 0.7rem 1.3rem;
+
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.empty-state__action:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}

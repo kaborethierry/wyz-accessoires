@@ -1,0 +1,273 @@
+/* =========================================================
+   components/layout/Header.css
+   ========================================================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-surface);
+  transition: background-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    height var(--dur-base) var(--ease-out);
+}
+
+.header--transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.header--solid {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+.header--scrolled {
+  box-shadow: 0 2px 12px var(--color-shadow);
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+}
+
+/* ---------------------------------------------------------
+   Structure interne
+   --------------------------------------------------------- */
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   Navigation desktop
+   --------------------------------------------------------- */
+.header__nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.header__nav-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  padding: var(--space-2) 0;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.header--transparent .header__nav-link {
+  color: var(--color-bg);
+}
+
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-orange);
+  transition: width var(--dur-base) var(--ease-out);
+}
+
+.header__nav-link:hover::after,
+.header__nav-link.is-active::after {
+  width: 100%;
+}
+
+.header__nav-link.is-active {
+  color: var(--color-brown);
+}
+
+.header--transparent .header__nav-link.is-active {
+  color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   Actions
+   --------------------------------------------------------- */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.header__icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.header--transparent .header__icon-btn {
+  color: var(--color-bg);
+}
+
+.header__icon-btn:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+  transform: translateY(-1px);
+}
+
+.header--transparent .header__icon-btn:hover {
+  background-color: rgba(251, 247, 242, 0.15);
+  color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   Badges
+   --------------------------------------------------------- */
+.header__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brick);
+  color: var(--color-surface);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid var(--color-surface);
+}
+
+.header--transparent .header__badge {
+  border-color: transparent;
+}
+
+.header__badge--cart {
+  background-color: var(--color-orange);
+}
+
+/* ---------------------------------------------------------
+   Bouton WhatsApp
+   --------------------------------------------------------- */
+.header__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 0.9rem;
+  background-color: var(--color-success);
+  color: var(--color-surface);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+  margin-left: var(--space-2);
+}
+
+.header__whatsapp:hover {
+  background-color: #335a41;
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+.header__whatsapp-label {
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   Bouton menu (mobile)
+   --------------------------------------------------------- */
+.header__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.header--transparent .header__menu-btn {
+  color: var(--color-bg);
+}
+
+.header__menu-btn:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__whatsapp-label {
+    display: none;
+  }
+
+  .header__whatsapp {
+    padding: 0.5rem;
+    border-radius: var(--radius-full);
+  }
+}
+
+@media (max-width: 767px) {
+  .header__menu-btn {
+    display: inline-flex;
+  }
+
+  .header__icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__whatsapp {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header__nav-link::after,
+  .header__icon-btn,
+  .header__whatsapp {
+    transition: none !important;
+  }
+}

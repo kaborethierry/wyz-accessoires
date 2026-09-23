@@ -1,0 +1,73 @@
+/* =========================================================
+   components/ui/QuantityControl.css
+   ========================================================= */
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.qty__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.qty__btn:hover:not(:disabled) {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+}
+
+.qty__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.qty__value {
+  min-width: 36px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  user-select: none;
+}
+
+/* ---------------------------------------------------------
+   Taille sm
+   --------------------------------------------------------- */
+.qty--sm .qty__btn {
+  width: 30px;
+  height: 30px;
+}
+
+.qty--sm .qty__value {
+  min-width: 30px;
+  font-size: var(--fs-xs);
+}
+
+/* ---------------------------------------------------------
+   Disabled
+   --------------------------------------------------------- */
+.qty.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .qty__btn {
+    transition: none !important;
+  }
+}

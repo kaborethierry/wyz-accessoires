@@ -1,0 +1,155 @@
+/* =========================================================
+   components/product/ProductSwipe.css
+   ========================================================= */
+
+.product-swipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  width: 100%;
+  padding-block: var(--space-4);
+}
+
+/* ---------------------------------------------------------
+   Pile
+   --------------------------------------------------------- */
+.product-swipe__stack {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  perspective: 1200px;
+}
+
+.product-swipe__card {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px var(--color-shadow);
+  overflow: hidden;
+
+  /* Empêche le scroll vertical d'être bloqué */
+  touch-action: pan-y;
+
+  will-change: transform, opacity;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.product-swipe__link {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-swipe__media {
+  position: relative;
+  width: 100%;
+}
+
+.product-swipe__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+}
+
+.product-swipe__name {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  max-width: 60%;
+}
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+.product-swipe__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.product-swipe__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-brown-dark);
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.product-swipe__nav-btn:hover {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-color: var(--color-brown);
+  transform: translateY(-1px);
+}
+
+.product-swipe__counter {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  min-width: 60px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Hint
+   --------------------------------------------------------- */
+.product-swipe__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  text-align: center;
+  max-width: 320px;
+}
+
+/* ---------------------------------------------------------
+   État vide
+   --------------------------------------------------------- */
+.product-swipe__empty {
+  padding: var(--space-10);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .product-swipe__body {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .product-swipe__nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .product-swipe__card {
+    transition: none !important;
+  }
+}

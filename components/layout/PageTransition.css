@@ -1,0 +1,28 @@
+/* =========================================================
+   components/layout/PageTransition.css
+   ========================================================= */
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.page-transition.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .page-transition.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+}

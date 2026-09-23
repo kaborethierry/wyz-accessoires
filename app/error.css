@@ -1,0 +1,121 @@
+/* =========================================================
+   app/error.css
+   Page d'erreur (error.jsx)
+   ========================================================= */
+
+.error-page {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-12) var(--container-pad);
+  background-color: var(--color-bg);
+}
+
+.error-page__inner {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ---------------------------------------------------------
+   Icône
+   --------------------------------------------------------- */
+.error-page__icon {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-full);
+  color: var(--color-brick);
+  background-color: rgba(166, 61, 64, 0.08);
+  border: 1px solid rgba(166, 61, 64, 0.2);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Texte
+   --------------------------------------------------------- */
+.error-page__title {
+  font-family: var(--font-display);
+  color: var(--color-brown-dark);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: var(--lh-tight);
+}
+
+.error-page__text {
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 440px;
+}
+
+/* ---------------------------------------------------------
+   Actions
+   --------------------------------------------------------- */
+.error-page__actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.error-page__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+  border: 1px solid transparent;
+}
+
+.error-page__btn--primary {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+}
+
+.error-page__btn--primary:hover {
+  background-color: var(--color-brown-dark);
+  transform: translateY(-1px);
+}
+
+.error-page__btn--ghost {
+  background-color: transparent;
+  color: var(--color-brown);
+  border-color: var(--color-border-strong);
+}
+
+.error-page__btn--ghost:hover {
+  background-color: var(--color-surface);
+  color: var(--color-brown-dark);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .error-page__icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .error-page__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .error-page__btn {
+    width: 100%;
+  }
+}

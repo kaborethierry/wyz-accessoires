@@ -1,0 +1,217 @@
+/* =========================================================
+   components/cart/CartDrawer.css
+   ========================================================= */
+
+.cart-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  pointer-events: none;
+}
+
+.cart-drawer.is-open {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+.cart-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  border: 0;
+  cursor: pointer;
+}
+
+.cart-drawer.is-open .cart-drawer__overlay {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Panneau
+   --------------------------------------------------------- */
+.cart-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(92vw, 440px);
+  max-width: 100%;
+
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(100%);
+  transition: transform var(--dur-base) var(--ease-out);
+  box-shadow: -8px 0 32px var(--color-shadow-strong);
+}
+
+.cart-drawer.is-open .cart-drawer__panel {
+  transform: translateX(0);
+}
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+.cart-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.cart-drawer__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.cart-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.cart-drawer__close:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Corps
+   --------------------------------------------------------- */
+.cart-drawer__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0 var(--space-5);
+}
+
+/* ---------------------------------------------------------
+   Pied
+   --------------------------------------------------------- */
+.cart-drawer__footer {
+  flex-shrink: 0;
+  padding: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cart-drawer__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Boutons
+   --------------------------------------------------------- */
+.cart-drawer__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  padding: 0.8rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.cart-drawer__btn--primary {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+}
+
+.cart-drawer__btn--primary:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+.cart-drawer__btn--secondary {
+  background-color: transparent;
+  color: var(--color-brown);
+  border: 1px solid var(--color-border-strong);
+}
+
+.cart-drawer__btn--secondary:hover {
+  background-color: rgba(107, 62, 46, 0.06);
+  color: var(--color-brown-dark);
+}
+
+.cart-drawer__btn--whatsapp {
+  background-color: var(--color-success);
+  color: var(--color-surface);
+}
+
+.cart-drawer__btn--whatsapp:hover {
+  background-color: #335a41;
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Vider panier
+   --------------------------------------------------------- */
+.cart-drawer__clear {
+  align-self: center;
+  margin-top: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.cart-drawer__clear:hover {
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .cart-drawer__panel {
+    width: 100%;
+  }
+
+  .cart-drawer__header,
+  .cart-drawer__footer {
+    padding: var(--space-4);
+  }
+
+  .cart-drawer__body {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cart-drawer__overlay,
+  .cart-drawer__panel,
+  .cart-drawer__btn {
+    transition: none !important;
+  }
+}

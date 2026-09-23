@@ -1,0 +1,164 @@
+/* =========================================================
+   components/ui/Loader.module.css
+   ========================================================= */
+
+.loader {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-6);
+  z-index: var(--z-modal);
+}
+
+.fullscreen {
+  position: fixed;
+  inset: 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Logo
+   --------------------------------------------------------- */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: logoIn 700ms var(--ease-out) both;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.25rem;
+  letter-spacing: 0.1em;
+  color: var(--color-brown);
+  line-height: 1;
+}
+
+.logoSub {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------------------------------------------------------
+   Barre de progression
+   --------------------------------------------------------- */
+.bar {
+  position: relative;
+  width: 200px;
+  height: 3px;
+  background-color: rgba(107, 62, 46, 0.12);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.barFill {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    var(--color-brown) 0%,
+    var(--color-brick) 50%,
+    var(--color-orange) 100%
+  );
+  border-radius: var(--radius-full);
+  animation: barMove 1500ms var(--ease-in-out) infinite;
+}
+
+@keyframes barMove {
+  0% {
+    transform: translateX(-110%);
+    width: 40%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    transform: translateX(260%);
+    width: 40%;
+  }
+}
+
+/* ---------------------------------------------------------
+   Label
+   --------------------------------------------------------- */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---------------------------------------------------------
+   Sortie
+   --------------------------------------------------------- */
+.exiting {
+  animation: loaderOut 320ms var(--ease-out) both;
+}
+
+@keyframes loaderOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .logoText {
+    font-size: 1.75rem;
+  }
+
+  .bar {
+    width: 160px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .barFill,
+  .exiting {
+    animation: none !important;
+  }
+
+  .barFill {
+    width: 100%;
+    transform: none;
+    background: var(--color-brown);
+  }
+}

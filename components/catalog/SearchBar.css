@@ -1,0 +1,109 @@
+/* =========================================================
+   components/catalog/SearchBar.css
+   ========================================================= */
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+
+  padding: 0.4rem 0.6rem 0.4rem 2.4rem;
+  min-height: 44px;
+
+  transition: border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 4px rgba(229, 138, 43, 0.16);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Icône gauche
+   --------------------------------------------------------- */
+.search-bar__icon {
+  position: absolute;
+  left: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.search-bar:focus-within .search-bar__icon {
+  color: var(--color-orange);
+}
+
+/* ---------------------------------------------------------
+   Input
+   --------------------------------------------------------- */
+.search-bar__input {
+  flex: 1 1 auto;
+  width: 100%;
+
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-muted-soft);
+}
+
+.search-bar__input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Retire l'icône de recherche native */
+.search-bar__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ---------------------------------------------------------
+   Bouton effacer
+   --------------------------------------------------------- */
+.search-bar__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  color: var(--color-muted);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.search-bar__clear:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .search-bar,
+  .search-bar__clear {
+    transition: none !important;
+  }
+
+  .search-bar:focus-within {
+    transform: none;
+  }
+}

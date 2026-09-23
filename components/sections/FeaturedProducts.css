@@ -1,0 +1,103 @@
+/* =========================================================
+   components/sections/FeaturedProducts.css
+   ========================================================= */
+
+.featured {
+  width: 100%;
+  background-color: var(--color-bg);
+}
+
+.featured__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.featured__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.featured__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  max-width: 520px;
+  line-height: var(--lh-relaxed);
+}
+
+.featured__grid {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   CTA
+   --------------------------------------------------------- */
+.featured__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
+.featured__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  min-height: 44px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-full);
+
+  border: 1px solid var(--color-brown);
+  color: var(--color-brown);
+  background-color: transparent;
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    gap var(--dur-fast) var(--ease-out);
+}
+
+.featured__cta-btn:hover {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+  gap: var(--space-3);
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .featured__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .featured__cta {
+    margin-top: var(--space-8);
+  }
+
+  .featured__cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured__cta-btn {
+    transition: none !important;
+  }
+
+  .featured__cta-btn:hover {
+    transform: none;
+  }
+}

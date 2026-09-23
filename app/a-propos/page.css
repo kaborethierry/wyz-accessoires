@@ -1,0 +1,289 @@
+/* =========================================================
+   app/a-propos/page.css
+   ========================================================= */
+
+.a-propos {
+  width: 100%;
+  padding-block: var(--space-10) var(--space-16);
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   En-tête
+   --------------------------------------------------------- */
+.a-propos__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+  max-width: 720px;
+}
+
+.a-propos__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.a-propos__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.a-propos__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 620px;
+}
+
+/* ---------------------------------------------------------
+   Sections alternées
+   --------------------------------------------------------- */
+.a-propos__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.a-propos__section--reverse .a-propos__media {
+  order: 2;
+}
+
+.a-propos__section--reverse .a-propos__content {
+  order: 1;
+}
+
+/* Média */
+.a-propos__media-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(107, 62, 46, 0.15) 0%,
+    rgba(229, 138, 43, 0.15) 100%
+  );
+  box-shadow: 0 20px 50px var(--color-shadow);
+}
+
+.a-propos__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.a-propos__media-inner:hover .a-propos__img {
+  transform: scale(1.04);
+}
+
+.a-propos__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 0.12em;
+  color: var(--color-brown);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* Contenu */
+.a-propos__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.a-propos__section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.a-propos__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-relaxed);
+  opacity: 0.9;
+}
+
+.a-propos__text--muted {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.a-propos__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+}
+
+.a-propos__list li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-normal);
+}
+
+.a-propos__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+}
+
+/* ---------------------------------------------------------
+   CTA final
+   --------------------------------------------------------- */
+.a-propos__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.a-propos__cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.a-propos__cta-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.a-propos__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-full);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.a-propos__btn--primary {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+}
+
+.a-propos__btn--primary:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+.a-propos__btn--ghost {
+  background-color: transparent;
+  color: var(--color-brown);
+  border: 1px solid var(--color-border-strong);
+}
+
+.a-propos__btn--ghost:hover {
+  background-color: var(--color-surface);
+  color: var(--color-brown-dark);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .a-propos__section {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .a-propos__section--reverse .a-propos__media,
+  .a-propos__section--reverse .a-propos__content {
+    order: unset;
+  }
+
+  .a-propos__media {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .a-propos {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .a-propos__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .a-propos__section {
+    margin-bottom: var(--space-10);
+  }
+
+  .a-propos__cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .a-propos__btn {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .a-propos__img,
+  .a-propos__btn {
+    transition: none !important;
+  }
+
+  .a-propos__media-inner:hover .a-propos__img {
+    transform: none;
+  }
+
+  .a-propos__btn:hover {
+    transform: none;
+  }
+}

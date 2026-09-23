@@ -1,0 +1,96 @@
+/* =========================================================
+   components/ui/ErrorState.css
+   ========================================================= */
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+
+  padding: var(--space-10) var(--space-6);
+  max-width: 420px;
+  margin-inline: auto;
+
+  animation: error-state-in 400ms var(--ease-out) both;
+}
+
+@keyframes error-state-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   Icône
+   --------------------------------------------------------- */
+.error-state__icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background-color: rgba(166, 61, 64, 0.08);
+  color: var(--color-brick);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Texte
+   --------------------------------------------------------- */
+.error-state__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.error-state__message {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 320px;
+}
+
+/* ---------------------------------------------------------
+   Bouton Réessayer
+   --------------------------------------------------------- */
+.error-state__retry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: var(--space-3);
+  padding: 0.7rem 1.4rem;
+
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.error-state__retry:hover {
+  background-color: var(--color-brown-dark);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .error-state {
+    animation: none !important;
+  }
+}

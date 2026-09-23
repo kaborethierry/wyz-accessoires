@@ -1,0 +1,56 @@
+/* =========================================================
+   components/product/ProductActions.css
+   ========================================================= */
+
+.product-actions {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.product-actions--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-actions--column {
+  flex-direction: column;
+}
+
+.product-actions--column .btn {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Feedback ajout panier
+   --------------------------------------------------------- */
+.product-actions .btn.is-just-added {
+  background-color: var(--color-success) !important;
+  color: var(--color-surface) !important;
+}
+
+/* ---------------------------------------------------------
+   État favori actif
+   --------------------------------------------------------- */
+.product-actions .btn.is-active {
+  color: var(--color-brick);
+  border-color: var(--color-brick);
+}
+
+.product-actions .btn.is-active:hover {
+  background-color: rgba(166, 61, 64, 0.08);
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .product-actions--row {
+    flex-direction: column;
+  }
+
+  .product-actions--row .btn {
+    width: 100%;
+  }
+}

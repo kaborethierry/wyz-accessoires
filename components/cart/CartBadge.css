@@ -1,0 +1,67 @@
+/* =========================================================
+   components/cart/CartBadge.css
+   ========================================================= */
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: var(--radius-full);
+  background-color: var(--color-orange);
+  color: var(--color-surface);
+
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+
+  border: 2px solid var(--color-surface);
+
+  /* Positionnement par défaut : à placer dans un parent position:relative */
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  pointer-events: none;
+  user-select: none;
+
+  animation: cart-badge-pop 250ms var(--ease-out);
+}
+
+/* ---------------------------------------------------------
+   Contexte Header transparent : bordure discrète
+   --------------------------------------------------------- */
+.header--transparent .cart-badge {
+  border-color: transparent;
+}
+
+/* ---------------------------------------------------------
+   Animation d'apparition
+   --------------------------------------------------------- */
+@keyframes cart-badge-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cart-badge {
+    animation: none !important;
+  }
+}

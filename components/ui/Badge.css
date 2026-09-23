@@ -1,0 +1,76 @@
+/* =========================================================
+   components/ui/Badge.css
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  line-height: 1;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   Tailles
+   --------------------------------------------------------- */
+.badge--sm {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+}
+
+.badge--md {
+  font-size: 0.7rem;
+}
+
+/* ---------------------------------------------------------
+   Variante : Default (neutre)
+   --------------------------------------------------------- */
+.badge--default {
+  background-color: rgba(36, 26, 22, 0.06);
+  color: var(--color-brown-dark);
+  border-color: rgba(36, 26, 22, 0.1);
+}
+
+/* ---------------------------------------------------------
+   Variante : Nouveau
+   --------------------------------------------------------- */
+.badge--new {
+  background-color: var(--color-orange);
+  color: var(--color-surface);
+}
+
+/* ---------------------------------------------------------
+   Variante : Populaire
+   --------------------------------------------------------- */
+.badge--popular {
+  background-color: var(--color-brick);
+  color: var(--color-surface);
+}
+
+/* ---------------------------------------------------------
+   Variante : Disponible
+   --------------------------------------------------------- */
+.badge--available {
+  background-color: var(--color-success);
+  color: var(--color-surface);
+}
+
+/* ---------------------------------------------------------
+   Variante : Prix sur demande
+   --------------------------------------------------------- */
+.badge--ask {
+  background-color: rgba(229, 138, 43, 0.12);
+  color: var(--color-orange);
+  border-color: rgba(229, 138, 43, 0.35);
+}

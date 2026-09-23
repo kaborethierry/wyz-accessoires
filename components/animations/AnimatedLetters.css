@@ -1,0 +1,49 @@
+/* =========================================================
+   components/animations/AnimatedLetters.css
+   ========================================================= */
+
+.animated-letters {
+  display: inline-block;
+  line-height: inherit;
+}
+
+.animated-letters.is-static {
+  /* rien à animer */
+}
+
+/* ---------------------------------------------------------
+   Lettres
+   --------------------------------------------------------- */
+.animated-letters__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.35em) rotate(2deg);
+  animation: animated-letter-in var(--duration, 600ms) var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)) forwards;
+  animation-delay: calc(var(--delay, 0ms) + var(--i, 0) * var(--stagger, 40ms));
+  will-change: opacity, transform;
+}
+
+.animated-letters__char.is-space {
+  /* Les espaces ne doivent pas déclencher d'animation visible */
+  transform: none;
+  animation: none;
+  opacity: 1;
+}
+
+@keyframes animated-letter-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .animated-letters__char {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

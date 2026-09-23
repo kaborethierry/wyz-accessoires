@@ -1,0 +1,54 @@
+/* =========================================================
+   components/animations/Reveal.css
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: var(--reveal-duration, 600ms);
+  transition-timing-function: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/* ---------------------------------------------------------
+   Directions — état initial
+   --------------------------------------------------------- */
+.reveal--up {
+  transform: translate3d(0, var(--reveal-distance, 20px), 0);
+}
+
+.reveal--down {
+  transform: translate3d(0, calc(-1 * var(--reveal-distance, 20px)), 0);
+}
+
+.reveal--left {
+  transform: translate3d(calc(-1 * var(--reveal-distance, 20px)), 0, 0);
+}
+
+.reveal--right {
+  transform: translate3d(var(--reveal-distance, 20px), 0, 0);
+}
+
+.reveal--none {
+  transform: none;
+}
+
+/* ---------------------------------------------------------
+   État visible
+   --------------------------------------------------------- */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

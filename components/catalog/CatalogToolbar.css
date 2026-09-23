@@ -1,0 +1,148 @@
+/* =========================================================
+   components/catalog/CatalogToolbar.css
+   ========================================================= */
+
+.catalog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.catalog-toolbar.is-compact {
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Zone gauche
+   --------------------------------------------------------- */
+.catalog-toolbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.catalog-toolbar__count {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.catalog-toolbar__filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0.4rem 0.8rem;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-brown-dark);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.catalog-toolbar__filter-btn:hover {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Zone droite
+   --------------------------------------------------------- */
+.catalog-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+
+.catalog-toolbar__sort-placeholder {
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------
+   Switcher grille / swipe
+   --------------------------------------------------------- */
+.catalog-toolbar__view {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background-color: rgba(107, 62, 46, 0.06);
+  border-radius: var(--radius-full);
+}
+
+.catalog-toolbar__view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  color: var(--color-muted);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.catalog-toolbar__view-btn:hover {
+  color: var(--color-brown);
+}
+
+.catalog-toolbar__view-btn.is-active {
+  background-color: var(--color-surface);
+  color: var(--color-brown-dark);
+  box-shadow: 0 1px 4px var(--color-shadow);
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .catalog-toolbar {
+    padding: var(--space-3);
+  }
+
+  .catalog-toolbar__right {
+    gap: var(--space-2);
+  }
+
+  .catalog-toolbar__filter-btn span {
+    display: none;
+  }
+
+  .catalog-toolbar__filter-btn {
+    padding: 0.4rem;
+    min-width: 36px;
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .catalog-toolbar__filter-btn,
+  .catalog-toolbar__view-btn {
+    transition: none !important;
+  }
+}

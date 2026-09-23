@@ -1,0 +1,157 @@
+/* =========================================================
+   app/loading.css
+   Écran de chargement
+   ========================================================= */
+
+.loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-bg);
+  z-index: var(--z-modal);
+}
+
+.loading__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Logo WYZ
+   --------------------------------------------------------- */
+.loading__logo {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 24px var(--color-shadow);
+  animation: wyz-logo-pop 700ms var(--ease-out) both,
+    wyz-logo-pulse 1800ms var(--ease-in-out) 700ms infinite;
+}
+
+.loading__logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--color-brown);
+}
+
+@keyframes wyz-logo-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wyz-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px var(--color-shadow);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px var(--color-shadow-strong);
+  }
+}
+
+/* ---------------------------------------------------------
+   Barre de progression
+   --------------------------------------------------------- */
+.loading__bar {
+  position: relative;
+  width: 180px;
+  height: 4px;
+  background-color: rgba(107, 62, 46, 0.12);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.loading__bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    var(--color-brown) 0%,
+    var(--color-orange) 100%
+  );
+  border-radius: var(--radius-full);
+  animation: wyz-bar 1400ms var(--ease-in-out) infinite;
+}
+
+@keyframes wyz-bar {
+  0% {
+    transform: translateX(-110%);
+    width: 40%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    transform: translateX(260%);
+    width: 40%;
+  }
+}
+
+/* ---------------------------------------------------------
+   Libellé
+   --------------------------------------------------------- */
+.loading__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .loading__logo {
+    width: 68px;
+    height: 68px;
+  }
+
+  .loading__logo-text {
+    font-size: 1.25rem;
+  }
+
+  .loading__bar {
+    width: 150px;
+  }
+
+  .loading__inner {
+    gap: var(--space-4);
+  }
+}
+
+/* ---------------------------------------------------------
+   Mouvement réduit
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .loading__logo,
+  .loading__bar-fill {
+    animation: none !important;
+  }
+
+  .loading__bar-fill {
+    width: 100%;
+    transform: none;
+    background: var(--color-brown);
+  }
+}

@@ -1,0 +1,118 @@
+/* =========================================================
+   components/animations/ColorShift.css
+   ========================================================= */
+
+.color-shift {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------
+   Variant : blob (formes floues qui bougent)
+   --------------------------------------------------------- */
+.color-shift--blob .color-shift__layer {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.color-shift--blob .color-shift__layer--1 {
+  width: 260px;
+  height: 260px;
+  background-color: var(--color-brown);
+  top: -40px;
+  left: -40px;
+  animation: color-shift-move-1 var(--color-shift-duration, 24s) var(--ease-in-out) infinite;
+}
+
+.color-shift--blob .color-shift__layer--2 {
+  width: 220px;
+  height: 220px;
+  background-color: var(--color-brick);
+  bottom: -60px;
+  right: -30px;
+  animation: color-shift-move-2 var(--color-shift-duration, 24s) var(--ease-in-out) infinite;
+}
+
+.color-shift--blob .color-shift__layer--3 {
+  width: 200px;
+  height: 200px;
+  background-color: var(--color-orange);
+  top: 40%;
+  right: 20%;
+  opacity: 0.25;
+  animation: color-shift-move-3 var(--color-shift-duration, 24s) var(--ease-in-out) infinite;
+}
+
+@keyframes color-shift-move-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(30px, 20px, 0) scale(1.06); }
+}
+
+@keyframes color-shift-move-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-24px, -18px, 0) scale(1.05); }
+}
+
+@keyframes color-shift-move-3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-16px, 24px, 0) scale(1.08); }
+}
+
+/* ---------------------------------------------------------
+   Variant : gradient (fond animé très lent)
+   --------------------------------------------------------- */
+.color-shift--gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-brown) 0%,
+    var(--color-brick) 50%,
+    var(--color-orange) 100%
+  );
+  background-size: 300% 300%;
+  animation: color-shift-gradient var(--color-shift-duration, 24s) var(--ease-in-out) infinite;
+}
+
+.color-shift--gradient .color-shift__layer {
+  display: none;
+}
+
+@keyframes color-shift-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ---------------------------------------------------------
+   Contenu (optionnel)
+   --------------------------------------------------------- */
+.color-shift__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+.color-shift.is-static,
+.color-shift.is-static .color-shift__layer {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .color-shift,
+  .color-shift .color-shift__layer {
+    animation: none !important;
+  }
+
+  .color-shift--gradient {
+    background-position: 0% 50%;
+  }
+}

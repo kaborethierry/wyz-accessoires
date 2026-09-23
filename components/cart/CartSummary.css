@@ -1,0 +1,97 @@
+/* =========================================================
+   components/cart/CartSummary.css
+   ========================================================= */
+
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Lignes
+   --------------------------------------------------------- */
+.cart-summary__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.cart-summary__label {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.cart-summary__value {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ---------------------------------------------------------
+   Divider
+   --------------------------------------------------------- */
+.cart-summary__divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--space-1) 0;
+}
+
+/* ---------------------------------------------------------
+   Total
+   --------------------------------------------------------- */
+.cart-summary__row--total {
+  align-items: baseline;
+}
+
+.cart-summary__label--total {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.cart-summary__value--total {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-brown-dark);
+  animation: cart-total-pop 320ms var(--ease-out);
+}
+
+@keyframes cart-total-pop {
+  0% {
+    transform: scale(1);
+    color: var(--color-orange);
+  }
+  50% {
+    transform: scale(1.06);
+    color: var(--color-orange);
+  }
+  100% {
+    transform: scale(1);
+    color: var(--color-brown-dark);
+  }
+}
+
+/* ---------------------------------------------------------
+   Note livraison
+   --------------------------------------------------------- */
+.cart-summary__note {
+  font-size: var(--fs-xs);
+  color: var(--color-muted-soft);
+  line-height: var(--lh-normal);
+  margin-top: var(--space-1);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cart-summary__value--total {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,207 @@
+/* =========================================================
+   components/ui/Button.css
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  min-height: 44px; /* zone tactile accessible */
+  padding: 0.75rem 1.25rem;
+
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-wide);
+  line-height: 1;
+
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn:active:not(.is-disabled):not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+.btn.is-disabled,
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   Tailles
+   --------------------------------------------------------- */
+.btn--sm {
+  min-height: 38px;
+  padding: 0.55rem 0.9rem;
+  font-size: var(--fs-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn--md {
+  min-height: 44px;
+}
+
+.btn--lg {
+  min-height: 52px;
+  padding: 0.95rem 1.6rem;
+  font-size: var(--fs-base);
+  border-radius: var(--radius-lg);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Variante : Primary
+   --------------------------------------------------------- */
+.btn--primary {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-brown-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px var(--color-shadow);
+}
+
+/* ---------------------------------------------------------
+   Variante : Secondary
+   --------------------------------------------------------- */
+.btn--secondary {
+  background-color: var(--color-brick);
+  color: var(--color-surface);
+}
+
+.btn--secondary:hover {
+  background-color: #8f3235;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px var(--color-shadow);
+}
+
+/* ---------------------------------------------------------
+   Variante : Outline
+   --------------------------------------------------------- */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Variante : WhatsApp
+   --------------------------------------------------------- */
+.btn--whatsapp {
+  background-color: var(--color-success);
+  color: var(--color-surface);
+}
+
+.btn--whatsapp:hover {
+  background-color: #335a41;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(63, 107, 79, 0.28);
+}
+
+/* ---------------------------------------------------------
+   Variante : Danger
+   --------------------------------------------------------- */
+.btn--danger {
+  background-color: var(--color-brick);
+  color: var(--color-surface);
+}
+
+.btn--danger:hover {
+  background-color: #8f3235;
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Variante : Ghost
+   --------------------------------------------------------- */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-brown);
+  border-color: var(--color-border-strong);
+}
+
+.btn--ghost:hover {
+  background-color: rgba(107, 62, 46, 0.06);
+  color: var(--color-brown-dark);
+}
+
+/* ---------------------------------------------------------
+   Loading
+   --------------------------------------------------------- */
+.btn.is-loading {
+  cursor: progress;
+  pointer-events: none;
+}
+
+.btn__spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: btn-spin 700ms linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------------------------------------------
+   Icônes
+   --------------------------------------------------------- */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.btn__label {
+  display: inline-block;
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn__spinner {
+    transition: none !important;
+    animation: none !important;
+  }
+}

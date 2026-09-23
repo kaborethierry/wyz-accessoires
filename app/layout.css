@@ -1,0 +1,117 @@
+/* =========================================================
+   app/layout.css
+   Structure globale de l'application
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Structure générale
+   --------------------------------------------------------- */
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  position: relative;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  width: 100%;
+  padding-top: var(--header-height, 72px);
+  transition: padding-top var(--dur-base) var(--ease-out);
+}
+
+/* ---------------------------------------------------------
+   2. Conteneur principal
+   --------------------------------------------------------- */
+.app-main > * {
+  width: 100%;
+}
+
+.app-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* ---------------------------------------------------------
+   3. Typographie globale du layout
+   --------------------------------------------------------- */
+:root {
+  --font-display: var(--font-playfair, "Playfair Display", serif);
+  --font-body: var(--font-manrope, "Manrope", system-ui, sans-serif);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+/* ---------------------------------------------------------
+   4. Espaces Header / Footer
+   --------------------------------------------------------- */
+:root {
+  --header-height: 72px;
+  --header-height-mobile: 60px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: var(--header-height-mobile);
+  }
+}
+
+/* ---------------------------------------------------------
+   5. Comportement desktop / mobile
+   --------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .app-main {
+    padding-top: var(--header-height);
+  }
+}
+
+@media (max-width: 1023px) {
+  .app-main {
+    padding-top: var(--header-height-mobile);
+  }
+}
+
+/* ---------------------------------------------------------
+   6. Hauteur minimale de page
+   --------------------------------------------------------- */
+.app-main {
+  min-height: calc(100dvh - var(--header-height));
+}
+
+/* ---------------------------------------------------------
+   7. Transitions générales
+   --------------------------------------------------------- */
+.page-fade-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+/* ---------------------------------------------------------
+   8. Sécurité — contenu débordant
+   --------------------------------------------------------- */
+.app-shell,
+.app-main {
+  overflow-x: clip;
+}

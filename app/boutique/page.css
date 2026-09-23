@@ -1,0 +1,112 @@
+/* =========================================================
+   app/boutique/page.css
+   ========================================================= */
+
+.boutique {
+  width: 100%;
+  padding-block: var(--space-10) var(--space-16);
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   En-tête
+   --------------------------------------------------------- */
+.boutique__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.boutique__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.boutique__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.boutique__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  max-width: 560px;
+  line-height: var(--lh-relaxed);
+}
+
+/* ---------------------------------------------------------
+   Search
+   --------------------------------------------------------- */
+.boutique__search {
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-8);
+}
+
+/* ---------------------------------------------------------
+   Layout principal
+   --------------------------------------------------------- */
+.boutique__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+.boutique__sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+
+.boutique__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------
+   Vue swipe
+   --------------------------------------------------------- */
+.boutique__swipe {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-6);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .boutique__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .boutique__sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .boutique {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .boutique__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .boutique__search {
+    margin-bottom: var(--space-6);
+  }
+}

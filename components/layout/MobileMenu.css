@@ -1,0 +1,174 @@
+/* =========================================================
+   components/layout/MobileMenu.css
+   ========================================================= */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  pointer-events: none;
+}
+
+.mobile-menu.is-open {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+.mobile-menu__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  border: 0;
+  cursor: pointer;
+}
+
+.mobile-menu.is-open .mobile-menu__overlay {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Panneau
+   --------------------------------------------------------- */
+.mobile-menu__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(88vw, 380px);
+  max-width: 100%;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--dur-base) var(--ease-out);
+  box-shadow: -8px 0 32px var(--color-shadow-strong);
+  overflow-y: auto;
+}
+
+.mobile-menu.is-open .mobile-menu__panel {
+  transform: translateX(0);
+}
+
+/* ---------------------------------------------------------
+   Header du panneau
+   --------------------------------------------------------- */
+.mobile-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.mobile-menu__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu__close:hover {
+  background-color: rgba(107, 62, 46, 0.08);
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+.mobile-menu__nav {
+  flex: 1 1 auto;
+  padding: var(--space-4) 0;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu__item {
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+.mobile-menu.is-open .mobile-menu__item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--color-text);
+  border-left: 3px solid transparent;
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu__link:hover {
+  color: var(--color-brown);
+  background-color: rgba(107, 62, 46, 0.04);
+}
+
+.mobile-menu__link.is-active {
+  color: var(--color-brown);
+  border-left-color: var(--color-orange);
+  background-color: rgba(107, 62, 46, 0.06);
+}
+
+/* ---------------------------------------------------------
+   Footer du panneau
+   --------------------------------------------------------- */
+.mobile-menu__footer {
+  padding: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.mobile-menu__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background-color: var(--color-success);
+  color: var(--color-surface);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu__whatsapp:hover {
+  background-color: #335a41;
+  color: var(--color-surface);
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu__overlay,
+  .mobile-menu__panel,
+  .mobile-menu__item,
+  .mobile-menu__link {
+    transition: none !important;
+  }
+}

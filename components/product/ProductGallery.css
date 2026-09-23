@@ -1,0 +1,156 @@
+/* =========================================================
+   components/product/ProductGallery.css
+   ========================================================= */
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Image principale
+   --------------------------------------------------------- */
+.product-gallery__main {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  cursor: zoom-in;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.product-gallery__main:hover {
+  border-color: rgba(107, 62, 46, 0.28);
+}
+
+.product-gallery__main:disabled {
+  cursor: default;
+}
+
+.product-gallery__empty-label {
+  position: absolute;
+  inset: auto 0 12px 0;
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Miniatures
+   --------------------------------------------------------- */
+.product-gallery__thumbs {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+  scrollbar-width: thin;
+}
+
+.product-gallery__thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.product-gallery__thumb:hover {
+  border-color: var(--color-brown);
+  transform: translateY(-1px);
+}
+
+.product-gallery__thumb.is-active {
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 2px rgba(229, 138, 43, 0.28);
+}
+
+/* ---------------------------------------------------------
+   Navigation (mobile / lightbox)
+   --------------------------------------------------------- */
+.product-gallery__nav,
+.product-gallery__lightbox-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.product-gallery__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-brown-dark);
+
+  font-size: 1.25rem;
+  line-height: 1;
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.product-gallery__nav-btn:hover {
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+  border-color: var(--color-brown);
+  transform: translateY(-1px);
+}
+
+.product-gallery__counter {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  min-width: 48px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Lightbox
+   --------------------------------------------------------- */
+.product-gallery__lightbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .product-gallery__thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .product-gallery__main,
+  .product-gallery__thumb,
+  .product-gallery__nav-btn {
+    transition: none !important;
+  }
+}

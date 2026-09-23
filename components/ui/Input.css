@@ -1,0 +1,120 @@
+/* =========================================================
+   components/ui/Input.css
+   ========================================================= */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Label
+   --------------------------------------------------------- */
+.input__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.input__required {
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Wrapper du champ
+   --------------------------------------------------------- */
+.input__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input__control {
+  width: 100%;
+  min-height: 44px;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+
+  transition: border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.input__control::placeholder {
+  color: var(--color-muted-soft);
+}
+
+.input__control:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 3px rgba(229, 138, 43, 0.18);
+}
+
+/* ---------------------------------------------------------
+   Icône
+   --------------------------------------------------------- */
+.input__icon {
+  position: absolute;
+  left: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.input.has-icon .input__control {
+  padding-left: 2.4rem;
+}
+
+/* ---------------------------------------------------------
+   Erreur
+   --------------------------------------------------------- */
+.input.is-error .input__control {
+  border-color: var(--color-brick);
+}
+
+.input.is-error .input__control:focus {
+  box-shadow: 0 0 0 3px rgba(166, 61, 64, 0.18);
+}
+
+.input__error {
+  font-size: var(--fs-xs);
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Hint
+   --------------------------------------------------------- */
+.input__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+/* ---------------------------------------------------------
+   Disabled
+   --------------------------------------------------------- */
+.input.is-disabled .input__control,
+.input__control:disabled {
+  background-color: rgba(36, 26, 22, 0.04);
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .input__control {
+    transition: none !important;
+  }
+}

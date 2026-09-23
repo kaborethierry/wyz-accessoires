@@ -1,0 +1,136 @@
+/* =========================================================
+   components/sections/WhatsAppCTA.css
+   ========================================================= */
+
+.wa-cta {
+  width: 100%;
+  background-color: var(--color-brown-dark);
+  color: var(--color-bg);
+}
+
+.wa-cta__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+/* ---------------------------------------------------------
+   Contenu
+   --------------------------------------------------------- */
+.wa-cta__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wa-cta__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.wa-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-bg);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.wa-cta__text {
+  font-size: var(--fs-base);
+  color: rgba(251, 247, 242, 0.8);
+  line-height: var(--lh-relaxed);
+  max-width: 520px;
+}
+
+/* ---------------------------------------------------------
+   Bouton
+   --------------------------------------------------------- */
+.wa-cta__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wa-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+
+  min-height: 52px;
+  padding: 0.95rem 1.75rem;
+  border-radius: var(--radius-full);
+
+  background-color: var(--color-success);
+  color: var(--color-surface);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  animation: wa-cta-pulse 2.4s var(--ease-in-out) infinite;
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.wa-cta__btn:hover {
+  background-color: #335a41;
+  color: var(--color-surface);
+  transform: translateY(-2px);
+  animation-play-state: paused;
+}
+
+@keyframes wa-cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(63, 107, 79, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(63, 107, 79, 0);
+  }
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .wa-cta__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  .wa-cta__content {
+    align-items: center;
+  }
+
+  .wa-cta__action {
+    justify-content: center;
+  }
+
+  .wa-cta__btn {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .wa-cta__btn {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .wa-cta__btn:hover {
+    transform: none;
+  }
+}

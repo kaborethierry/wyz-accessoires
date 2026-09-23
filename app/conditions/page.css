@@ -1,0 +1,171 @@
+/* =========================================================
+   app/conditions/page.css
+   (également utilisé par /confidentialite)
+   ========================================================= */
+
+.legal {
+  width: 100%;
+  padding-block: var(--space-10) var(--space-16);
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   En-tête
+   --------------------------------------------------------- */
+.legal__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+  max-width: 720px;
+}
+
+.legal__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.legal__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.legal__updated {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------
+   Contenu
+   --------------------------------------------------------- */
+.legal__content {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.legal__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal__section:last-of-type {
+  border-bottom: 0;
+}
+
+.legal__section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.legal__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-relaxed);
+  opacity: 0.9;
+}
+
+.legal__text--muted {
+  color: var(--color-muted);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Contact
+   --------------------------------------------------------- */
+.legal__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+}
+
+.legal__contact li {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-normal);
+}
+
+.legal__contact-label {
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.legal__link {
+  color: var(--color-brown);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.legal__link:hover {
+  color: var(--color-brick);
+}
+
+/* ---------------------------------------------------------
+   Retour
+   --------------------------------------------------------- */
+.legal__back {
+  margin-top: var(--space-6);
+  text-align: center;
+}
+
+.legal__back-link {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.legal__back-link:hover {
+  color: var(--color-brown);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .legal {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .legal__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .legal__content {
+    gap: var(--space-6);
+  }
+
+  .legal__section {
+    gap: var(--space-2);
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .legal__link,
+  .legal__back-link {
+    transition: none !important;
+  }
+}

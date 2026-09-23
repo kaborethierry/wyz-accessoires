@@ -1,0 +1,193 @@
+/* =========================================================
+   components/sections/MaterialsSection.css
+   ========================================================= */
+
+.materials {
+  width: 100%;
+  background-color: var(--color-bg);
+}
+
+.materials__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.materials__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+}
+
+.materials__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  max-width: 520px;
+  line-height: var(--lh-relaxed);
+}
+
+/* ---------------------------------------------------------
+   Mosaïque
+   --------------------------------------------------------- */
+.materials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+/* 5 éléments : le premier prend 2 colonnes sur la première ligne */
+.materials__grid > :first-child {
+  grid-column: span 2;
+}
+
+.materials__grid > :last-child {
+  grid-column: span 3;
+}
+
+/* ---------------------------------------------------------
+   Cartes
+   --------------------------------------------------------- */
+.materials__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 16 / 10;
+
+  opacity: 0;
+  transform: translateY(12px);
+  animation: materials-in 520ms var(--ease-out) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.materials__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px var(--color-shadow);
+}
+
+@keyframes materials-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.materials__media {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-brown-dark) 0%,
+    var(--color-brown) 60%,
+    var(--color-brick) 100%
+  );
+  overflow: hidden;
+}
+
+.materials__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.materials__card:hover .materials__img {
+  transform: scale(1.06);
+}
+
+.materials__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.14em;
+  color: rgba(251, 247, 242, 0.7);
+  z-index: -1;
+}
+
+/* ---------------------------------------------------------
+   Titre en bas
+   --------------------------------------------------------- */
+.materials__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(
+    180deg,
+    rgba(36, 26, 22, 0) 0%,
+    rgba(36, 26, 22, 0.75) 100%
+  );
+}
+
+.materials__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-bg);
+  letter-spacing: var(--ls-tight);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .materials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .materials__grid > :first-child,
+  .materials__grid > :last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .materials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .materials__grid > :first-child,
+  .materials__grid > :last-child {
+    grid-column: span 1;
+  }
+
+  .materials__card {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .materials__card,
+  .materials__img {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .materials__card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .materials__card:hover {
+    transform: none;
+  }
+
+  .materials__card:hover .materials__img {
+    transform: none;
+  }
+}

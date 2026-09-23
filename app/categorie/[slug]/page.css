@@ -1,0 +1,82 @@
+/* =========================================================
+   app/categorie/[slug]/page.css
+   ========================================================= */
+
+.categorie {
+  width: 100%;
+  padding-block: var(--space-10) var(--space-16);
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   En-tête
+   --------------------------------------------------------- */
+.categorie__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  max-width: 720px;
+}
+
+.categorie__breadcrumb {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  letter-spacing: var(--ls-wide);
+}
+
+.categorie__breadcrumb a {
+  color: var(--color-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.categorie__breadcrumb a:hover {
+  color: var(--color-brown);
+}
+
+.categorie__breadcrumb span[aria-current="page"] {
+  color: var(--color-brown-dark);
+  font-weight: 600;
+}
+
+.categorie__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.categorie__subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 560px;
+}
+
+.categorie__count {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  margin-top: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Contenu
+   --------------------------------------------------------- */
+.categorie__main {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .categorie {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .categorie__header {
+    margin-bottom: var(--space-6);
+  }
+}
