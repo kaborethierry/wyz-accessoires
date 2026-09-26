@@ -18,13 +18,14 @@
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-10);
+  max-width: 620px;
 }
 
 .faq__eyebrow {
   font-family: var(--font-body);
   font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.24em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-orange);
 }
@@ -35,6 +36,7 @@
   font-weight: 600;
   color: var(--color-brown-dark);
   letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
 }
 
 .faq__subtitle {
@@ -121,6 +123,8 @@
   font-weight: 700;
   line-height: 1;
   flex-shrink: 0;
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
 .faq__item.is-open .faq__icon {
@@ -153,6 +157,55 @@
 }
 
 /* ---------------------------------------------------------
+   CTA final
+   --------------------------------------------------------- */
+.faq__cta {
+  margin-top: var(--space-12);
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.faq__cta-text {
+  font-size: var(--fs-base);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+}
+
+.faq__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  min-height: 48px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-full);
+
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    gap var(--dur-fast) var(--ease-out);
+}
+
+.faq__cta-btn:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+  gap: var(--space-3);
+}
+
+/* ---------------------------------------------------------
    Responsive
    --------------------------------------------------------- */
 @media (max-width: 640px) {
@@ -172,6 +225,15 @@
   .faq__answer {
     padding: 0 var(--space-4) var(--space-4);
   }
+
+  .faq__cta {
+    margin-top: var(--space-8);
+  }
+
+  .faq__cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ---------------------------------------------------------
@@ -180,8 +242,14 @@
 @media (prefers-reduced-motion: reduce) {
   .faq__item,
   .faq__question,
-  .faq__answer {
+  .faq__icon,
+  .faq__answer,
+  .faq__cta-btn {
     transition: none !important;
     animation: none !important;
+  }
+
+  .faq__cta-btn:hover {
+    transform: none;
   }
 }

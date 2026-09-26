@@ -16,18 +16,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-12);
-  max-width: 720px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-16);
+  max-width: 760px;
 }
 
 .a-propos__eyebrow {
   font-family: var(--font-body);
   font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.24em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-orange);
+}
+
+.a-propos__eyebrow--inline {
+  /* Variante : eyebrow dans un flux gauche (pas centré) */
+  text-align: left;
+  align-self: flex-start;
 }
 
 .a-propos__title {
@@ -40,8 +46,10 @@
 }
 
 .a-propos__subtitle {
-  font-size: var(--fs-base);
-  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  color: var(--color-brown);
   line-height: var(--lh-relaxed);
   max-width: 620px;
 }
@@ -119,13 +127,27 @@
   font-weight: 600;
   color: var(--color-brown-dark);
   letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.a-propos__lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-brick);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .a-propos__text {
   font-size: var(--fs-sm);
   color: var(--color-text);
   line-height: var(--lh-relaxed);
-  opacity: 0.9;
+  opacity: 0.92;
+}
+
+.a-propos__text strong {
+  color: var(--color-brown-dark);
 }
 
 .a-propos__text--muted {
@@ -133,6 +155,35 @@
   font-style: italic;
 }
 
+/* Lien vidéo TikTok */
+.a-propos__video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+
+  margin-top: var(--space-3);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-full);
+
+  background-color: var(--color-brown);
+  color: var(--color-surface);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.a-propos__video-link:hover {
+  background-color: var(--color-brown-dark);
+  color: var(--color-surface);
+  transform: translateY(-2px);
+}
+
+/* Liste matières */
 .a-propos__list {
   display: flex;
   flex-direction: column;
@@ -158,6 +209,110 @@
   height: 8px;
   border-radius: 50%;
   background-color: var(--color-orange);
+}
+
+/* ---------------------------------------------------------
+   Valeurs
+   --------------------------------------------------------- */
+.a-propos__values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0;
+  margin: var(--space-2) 0;
+  list-style: none;
+}
+
+.a-propos__value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: 0.5rem 1rem;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-brown-dark);
+}
+
+.a-propos__value-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.a-propos__value-label {
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   Services (prestations + formations)
+   --------------------------------------------------------- */
+.a-propos__services {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0;
+  margin: var(--space-3) 0;
+  list-style: none;
+}
+
+.a-propos__service {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  padding: var(--space-4);
+  border-left: 3px solid var(--color-orange);
+  background-color: rgba(229, 138, 43, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.a-propos__service-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.a-propos__service-text {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-relaxed);
+  opacity: 0.9;
+}
+
+.a-propos__service-text strong {
+  color: var(--color-brown-dark);
+}
+
+.a-propos__services-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+
+  margin-top: var(--space-2);
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-orange);
+
+  transition: gap var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.a-propos__services-link:hover {
+  gap: var(--space-3);
+  color: var(--color-brick);
 }
 
 /* ---------------------------------------------------------
@@ -228,7 +383,7 @@
 }
 
 /* ---------------------------------------------------------
-   Responsive
+   Responsive — 900px
    --------------------------------------------------------- */
 @media (max-width: 900px) {
   .a-propos__section {
@@ -247,13 +402,16 @@
   }
 }
 
+/* ---------------------------------------------------------
+   Responsive — 640px
+   --------------------------------------------------------- */
 @media (max-width: 640px) {
   .a-propos {
     padding-block: var(--space-6) var(--space-10);
   }
 
   .a-propos__header {
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-10);
   }
 
   .a-propos__section {
@@ -265,8 +423,15 @@
     width: 100%;
   }
 
-  .a-propos__btn {
+  .a-propos__btn,
+  .a-propos__video-link {
     width: 100%;
+    justify-content: center;
+  }
+
+  .a-propos__services-link {
+    align-self: stretch;
+    justify-content: center;
   }
 }
 
@@ -275,7 +440,9 @@
    --------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .a-propos__img,
-  .a-propos__btn {
+  .a-propos__btn,
+  .a-propos__video-link,
+  .a-propos__services-link {
     transition: none !important;
   }
 
@@ -283,7 +450,8 @@
     transform: none;
   }
 
-  .a-propos__btn:hover {
+  .a-propos__btn:hover,
+  .a-propos__video-link:hover {
     transform: none;
   }
 }

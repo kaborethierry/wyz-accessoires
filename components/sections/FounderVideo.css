@@ -1,0 +1,187 @@
+/* =========================================================
+   components/sections/FounderVideo.css
+   ========================================================= */
+
+.founder-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-brown-dark) 0%,
+    var(--color-brown) 55%,
+    var(--color-brick) 100%
+  );
+  box-shadow: 0 12px 32px var(--color-shadow);
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+  text-align: center;
+}
+
+/* Fond décoratif : halo discret */
+.founder-video__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 79, 163, 0.15) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(229, 138, 43, 0.18) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+/* Contenu */
+.founder-video__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 380px;
+}
+
+/* Icône TikTok pulsante */
+.founder-video__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background-color: rgba(251, 247, 242, 0.12);
+  border: 1px solid rgba(251, 247, 242, 0.25);
+  color: var(--color-bg);
+  margin-bottom: var(--space-2);
+  animation: founder-video-pulse 2.8s var(--ease-in-out) infinite;
+}
+
+@keyframes founder-video-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(251, 247, 242, 0.35);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 14px rgba(251, 247, 242, 0);
+  }
+}
+
+/* Textes */
+.founder-video__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.founder-video__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--color-bg);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.founder-video__caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: rgba(251, 247, 242, 0.85);
+  line-height: var(--lh-relaxed);
+}
+
+/* Bouton */
+.founder-video__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  margin-top: var(--space-3);
+  padding: 0.85rem 1.6rem;
+
+  background-color: var(--color-bg);
+  color: var(--color-brown-dark);
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: var(--ls-wide);
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.founder-video__btn:hover {
+  background-color: var(--color-orange);
+  color: var(--color-brown-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Placeholder */
+.founder-video--placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--color-brown-dark) 0%,
+    var(--color-brown) 60%,
+    var(--color-brick) 100%
+  );
+}
+
+.founder-video__text {
+  color: rgba(251, 247, 242, 0.85);
+  font-size: var(--fs-sm);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .founder-video {
+    aspect-ratio: 4 / 3;
+    padding: var(--space-4);
+  }
+
+  .founder-video__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .founder-video__btn {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .founder-video__icon {
+    animation: none !important;
+  }
+
+  .founder-video__btn {
+    transition: none !important;
+  }
+
+  .founder-video__btn:hover {
+    transform: none;
+  }
+}

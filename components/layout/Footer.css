@@ -29,7 +29,7 @@
 
 .footer__col--brand {
   gap: var(--space-5);
-  max-width: 340px;
+  max-width: 360px;
 }
 
 .footer__tagline {
@@ -49,6 +49,10 @@
   letter-spacing: 0.14em;
   color: var(--color-orange);
   margin-bottom: var(--space-2);
+}
+
+.footer__title--spaced {
+  margin-top: var(--space-4);
 }
 
 /* ---------------------------------------------------------
@@ -102,6 +106,160 @@
 }
 
 /* ---------------------------------------------------------
+   Réseaux sociaux (avec texte « Suivez-nous »)
+   --------------------------------------------------------- */
+.footer__social-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(251, 247, 242, 0.1);
+}
+
+.footer__social-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-style: italic;
+  color: rgba(251, 247, 242, 0.7);
+  line-height: var(--lh-relaxed);
+  letter-spacing: 0.01em;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 0.85rem;
+
+  background-color: rgba(251, 247, 242, 0.08);
+  color: rgba(251, 247, 242, 0.85);
+  border-radius: var(--radius-full);
+
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.footer__social-link:hover {
+  color: var(--color-brown-dark);
+  transform: translateY(-2px);
+}
+
+.footer__social-link--fb:hover {
+  background-color: #1877F2;
+  color: #FFFFFF;
+}
+
+.footer__social-link--tt:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* ---------------------------------------------------------
+   Paiement mobile money
+   --------------------------------------------------------- */
+.footer__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--fs-xs);
+}
+
+.footer__payment-name {
+  color: var(--color-orange);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+}
+
+.footer__payment-number {
+  color: rgba(251, 247, 242, 0.75);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------
+   Carte Google Maps
+   --------------------------------------------------------- */
+.footer__map {
+  border-top: 1px solid rgba(251, 247, 242, 0.1);
+  padding-block: var(--space-12) var(--space-10);
+}
+
+.footer__map-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.footer__map-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__map-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--color-bg);
+  letter-spacing: var(--ls-tight);
+}
+
+.footer__map-address {
+  color: rgba(251, 247, 242, 0.75);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+}
+
+.footer__map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-orange);
+  transition: gap var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.footer__map-link:hover {
+  gap: var(--space-3);
+  color: #FFD27A;
+}
+
+.footer__map-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(251, 247, 242, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.footer__map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.15) contrast(1.05);
+}
+
+/* ---------------------------------------------------------
    Bas de footer
    --------------------------------------------------------- */
 .footer__bottom {
@@ -138,7 +296,7 @@
 }
 
 /* ---------------------------------------------------------
-   Responsive
+   Responsive — 1023px
    --------------------------------------------------------- */
 @media (max-width: 1023px) {
   .footer__inner {
@@ -151,8 +309,16 @@
     grid-column: 1 / -1;
     max-width: none;
   }
+
+  .footer__map-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
 }
 
+/* ---------------------------------------------------------
+   Responsive — 600px
+   --------------------------------------------------------- */
 @media (max-width: 600px) {
   .footer__inner {
     grid-template-columns: 1fr;
@@ -168,5 +334,32 @@
 
   .footer__legal {
     gap: var(--space-4);
+  }
+
+  .footer__social-link {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .footer__map-frame {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .footer__link,
+  .footer__contact-link,
+  .footer__social-link,
+  .footer__map-link,
+  .footer__legal-link {
+    transition: none !important;
+  }
+
+  .footer__social-link:hover,
+  .footer__map-link:hover {
+    transform: none;
   }
 }

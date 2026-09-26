@@ -19,7 +19,7 @@ import "./MaterialsSection.css";
 const materials = [
   {
     key: "pagne",
-    name: "Pagne",
+    name: "Koko Dunda Batik",
     image: "/images/materials/pagne.jpg",
   },
   {
@@ -29,17 +29,17 @@ const materials = [
   },
   {
     key: "faso-danfani",
-    name: "Faso Danfani",
+    name: "Batik",
     image: "/images/materials/faso-danfani.jpg",
   },
   {
     key: "woodin",
-    name: "Woodin",
+    name: "Koko Dunda Batik",
     image: "/images/materials/woodin.jpg",
   },
   {
     key: "bogolan",
-    name: "Bogolan",
+    name: "Wax",
     image: "/images/materials/bogolan.jpg",
   },
 ];

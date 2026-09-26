@@ -50,8 +50,8 @@ export const products = [
     id: "caba-effiloche-madina",
     slug: "caba-effiloche-madina",
     name: "Caba effiloché Madina",
-    price: null,
-    priceDisplay: "Prix sur demande",
+    price: 12000,
+    priceDisplay: "12 000 FCFA",
     category: "sacs",
   },
   {
@@ -70,12 +70,12 @@ export const products = [
     priceDisplay: "12 000 FCFA",
     category: "sacs",
   },
-  {
+   {
     id: "grand-sac-a-dos-dylan",
     slug: "grand-sac-a-dos-dylan",
     name: "Grand sac à dos Dylan",
-    price: null,
-    priceDisplay: "Prix sur demande",
+    price: 13000,
+    priceDisplay: "13 000 FCFA",
     category: "sacs",
   },
   {

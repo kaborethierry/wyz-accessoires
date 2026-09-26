@@ -24,7 +24,7 @@ export default function CategoryCard({ category, href }) {
           src={imageSrc}
           alt={category.name}
           ratio="4 / 5"
-          zoom={false}
+          zoom={false} 
         />
         <div className="category-card__overlay" aria-hidden="true" />
       </div>
