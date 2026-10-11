@@ -164,6 +164,8 @@ export default function AProposPage() {
             <li>Batik</li>
             <li>Koko Dunda Batik</li>
             <li>Wax</li>
+            <li>Toile de jute</li>
+            <li>Gaze de coton</li>
           </ul>
         </Reveal>
       </section>

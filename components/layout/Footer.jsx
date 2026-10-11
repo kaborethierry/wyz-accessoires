@@ -104,7 +104,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          {/* -------- Réseaux sociaux avec texte -------- */}
+          {/* -------- Réseaux sociaux -------- */}
           <div className="footer__social-block">
             <p className="footer__social-label">
               Suivez-nous pour ne rien manquer de nos nouveautés, coulisses et
@@ -194,9 +194,7 @@ export default function Footer() {
         <div className="footer__map-inner container">
           <div className="footer__map-header">
             <h3 className="footer__map-title">Nous trouver</h3>
-            <p className="footer__map-address">
-              {site.address.full}
-            </p>
+            <p className="footer__map-address">{site.address.full}</p>
             <a
               href={site.social.maps}
               target="_blank"
@@ -210,8 +208,8 @@ export default function Footer() {
 
           <div className="footer__map-frame">
             <iframe
-              title="Localisation WYZ Accessoires sur Google Maps"
-              src="https://www.google.com/maps?q=Zogona,+Ouagadougou,+Burkina+Faso&output=embed"
+              title="WYZ Accessoires sur Google Maps"
+              src="https://www.google.com/maps?q=WYZ+Accessoires,+Rue+Gang-La-Pelga,+Zogona,+Ouagadougou,+Burkina+Faso&z=16&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

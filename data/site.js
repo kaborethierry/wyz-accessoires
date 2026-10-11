@@ -40,7 +40,7 @@ export const site = {
     facebook: "https://www.facebook.com/wyz00",
     tiktok:
       "https://www.tiktok.com/search?q=wyz%20accessoires&t=1790460400111",
-    maps: "https://maps.app.goo.gl/rg8zSreLgrDzNwTV8?g_st=ic",
+    maps: "https://maps.app.goo.gl/qXDjZwujS3jJqkT9A?g_st=ic",
   },
 
   // Promotrice
